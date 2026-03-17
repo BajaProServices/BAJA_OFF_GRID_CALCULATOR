@@ -6,36 +6,74 @@
     <title>¡Gracias! | BAJA PRO SERVICES</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .bg-thanks {
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-white min-h-screen flex items-center justify-center px-4">
+<body class="bg-thanks text-white min-h-screen flex items-center justify-center px-4 font-sans">
 
-    <div class="max-w-md w-full text-center space-y-8">
+    <div class="max-w-md w-full text-center space-y-8 animate-in fade-in zoom-in duration-700">
+        
         <div class="flex justify-center">
-            <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center animate-bounce shadow-[0_0_30px_rgba(34,197,94,0.5)]">
-                <i class="fas fa-check text-4xl text-slate-900"></i>
+            <div class="relative">
+                <div class="absolute inset-0 bg-green-500 blur-2xl opacity-20 animate-pulse"></div>
+                <div class="relative w-24 h-24 bg-green-500 rounded-full flex items-center justify-center shadow-[0_0_40px_rgba(34,197,94,0.4)]">
+                    <i class="fas fa-check text-4xl text-slate-900"></i>
+                </div>
             </div>
         </div>
 
-        <div class="space-y-4">
-            <h1 class="text-4xl font-black">¡Datos Enviados!</h1>
-            <p class="text-slate-400 text-lg">Hemos recibido tu configuración. Un especialista de **BAJA PRO SERVICES** revisará tu caso para aplicar el **10% de descuento**.</p>
+        <div class="space-y-3">
+            <h1 class="text-4xl font-black tracking-tight">¡Datos Enviados!</h1>
+            <p class="text-slate-300 text-lg leading-relaxed">
+                Hemos recibido tu configuración. Un especialista de <span class="text-blue-400 font-bold">BAJA PRO SERVICES</span> te contactará en breve.
+            </p>
         </div>
 
-        <div class="bg-slate-800 p-6 rounded-3xl border border-slate-700">
-            <h3 class="font-bold text-blue-400 mb-2 uppercase tracking-widest text-sm">¿Qué sigue?</h3>
-            <ul class="text-sm text-left text-slate-300 space-y-3">
-                <li class="flex gap-3"><i class="fas fa-phone text-blue-500"></i> Recibirás un mensaje de WhatsApp pronto.</li>
-                <li class="flex gap-3"><i class="fas fa-file-invoice text-blue-500"></i> Ten a la mano tu último recibo de CFE.</li>
-                <li class="flex gap-3"><i class="fas fa-calendar-alt text-blue-500"></i> Agendaremos una visita técnica gratuita.</li>
+        <div class="glass-panel p-8 rounded-[2rem] shadow-2xl">
+            <h3 class="font-black text-blue-400 mb-6 uppercase tracking-[0.2em] text-xs">Próximos Pasos</h3>
+            <ul class="text-sm text-left space-y-5">
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                        <i class="fas fa-comment-dots text-[10px]"></i>
+                    </div>
+                    <span class="text-slate-200">Recibirás un mensaje de <strong class="text-white">WhatsApp</strong> con tu propuesta preliminar.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                        <i class="fas fa-receipt text-[10px]"></i>
+                    </div>
+                    <span class="text-slate-200">Ten listo tu <strong class="text-white">recibo de CFE</strong> para validar tu tarifa actual.</span>
+                </li>
+                <li class="flex items-start gap-4">
+                    <div class="mt-1 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+                        <i class="fas fa-percent text-[10px]"></i>
+                    </div>
+                    <span class="text-slate-200">Tu descuento del <strong class="text-green-400 font-bold text-base">10% OFF</strong> ya ha sido pre-aplicado.</span>
+                </li>
             </ul>
         </div>
 
-        <a href="index.html" class="inline-block text-slate-500 hover:text-white transition-colors underline text-sm">
-            Volver a la calculadora
-        </a>
+        <div class="pt-4 flex flex-col items-center gap-6">
+            <a href="index.html" class="flex items-center gap-2 text-slate-400 hover:text-white transition-all text-sm font-medium group">
+                <i class="fas fa-arrow-left text-xs group-hover:-translate-x-1 transition-transform"></i>
+                Volver a la calculadora
+            </a>
 
-        <div class="pt-8 border-t border-slate-800">
-            <p class="text-[10px] text-slate-500">Rosaura Zapata 2730, Benito Juárez oriente, La Paz, BCS.</p>
+            <div class="pt-8 border-t border-slate-800 w-full opacity-50">
+                <p class="text-[10px] uppercase tracking-widest font-bold text-slate-500">
+                    Baja Pro Services | La Paz, BCS
+                </p>
+            </div>
         </div>
     </div>
 

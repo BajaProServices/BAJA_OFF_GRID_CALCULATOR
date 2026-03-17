@@ -3,82 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotizador Solar | BAJA PRO SERVICES</title>
+    <title>Calculadora de Energía | BAJA PRO SERVICES</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        .bg-baja { background-color: #004aad; }
-        .text-baja { color: #004aad; }
-        /* Estilo para el Hero con imagen */
         .hero-section {
-            background: linear-gradient(rgba(0, 74, 173, 0.7), rgba(15, 23, 42, 0.9)), url('hero.jpg');
+            background-image: url('hero.png');
             background-size: cover;
             background-position: center;
+            height: 400px; /* Ajuste para que la imagen luzca limpia */
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
         }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .hero-label {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(4px);
+            @apply px-8 py-4 rounded-t-3xl text-center border-t border-x border-white/10;
+        }
+        input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
+        .input-cal { @apply bg-slate-100 border-none rounded-lg p-2 text-center text-sm font-bold focus:ring-2 focus:ring-blue-500 outline-none; }
+        .img-thumb { width: 50px; height: 50px; object-fit: contain; @apply rounded-lg bg-white p-1 shadow-sm border border-slate-100; }
+        .custom-scroll::-webkit-scrollbar { width: 6px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-50 min-h-screen font-sans">
+<body class="bg-slate-50 font-sans text-slate-900">
 
-    <header class="hero-section text-white py-16 px-6 shadow-lg">
-        <div class="container mx-auto flex flex-col items-center text-center">
-            <div class="text-3xl font-black tracking-tighter mb-4">BAJA <span class="text-blue-400">PRO SERVICES</span></div>
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Calculadora Solar Residencial</h1>
-            <p class="text-lg text-slate-200 max-w-2xl mb-6">Optimiza tu consumo en La Paz y BCS. Descubre cuántos paneles necesitas para eliminar tu recibo de CFE.</p>
-            <div class="inline-block bg-orange-500 text-white font-bold px-6 py-2 rounded-full text-sm uppercase tracking-widest animate-pulse">
-                10% OFF PROMO - Vence 30 Junio
-            </div>
+    <header class="hero-section shadow-inner">
+        <div class="hero-label">
+            <h1 class="text-2xl font-black text-white tracking-tighter uppercase">BAJA PRO SERVICES</h1>
+            <p class="text-blue-400 text-xs font-bold tracking-widest uppercase">Calculadora Técnica BCS</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 -mt-8 pb-20">
-        <div class="flex flex-col lg:flex-row gap-8">
+    <main class="container mx-auto px-4 mt-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
-            <div class="lg:w-2/3">
-                <div class="bg-white rounded-3xl p-8 shadow-2xl border border-slate-100">
-                    <div class="flex items-center justify-between mb-8">
-                        <h2 class="text-2xl font-bold text-slate-800">1. Selecciona tus Equipos</h2>
-                        <span class="text-slate-400 text-sm"><i class="fas fa-info-circle"></i> Clic para agregar</span>
+            <div class="lg:col-span-8 space-y-6">
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-id-card text-blue-600"></i> Información de Contacto</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <input type="text" id="c-nombre" placeholder="Nombre completo" class="input-cal bg-slate-50 py-4 px-4 text-left">
+                        <input type="tel" id="c-tel" placeholder="Número de teléfono" class="input-cal bg-slate-50 py-4 px-4 text-left">
+                        <input type="text" id="c-dir" placeholder="Dirección completa" class="input-cal bg-slate-50 py-4 px-4 text-left">
                     </div>
-                    
-                    <div id="grid-equipos" class="grid grid-cols-1 md:grid-cols-2 gap-4 h-[600px] overflow-y-auto pr-2 custom-scrollbar">
-                        </div>
+                </div>
+
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 overflow-hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-lg font-bold">Uso de Electrodomésticos</h2>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter italic">Baja California Sur | 5.9 PSH</span>
+                    </div>
+                    <div class="overflow-x-auto max-h-[600px] overflow-y-auto custom-scroll pr-2">
+                        <table class="w-full text-left">
+                            <thead class="sticky top-0 bg-white z-10">
+                                <tr class="text-[10px] uppercase text-slate-400 border-b italic">
+                                    <th class="pb-4">Aparato</th>
+                                    <th class="pb-4 text-center">Cant.</th>
+                                    <th class="pb-4 text-center">Horas</th>
+                                    <th class="pb-4 text-center">Minutos</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lista-tecnica"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <div class="lg:w-1/3">
-                <div class="bg-white rounded-3xl p-8 sticky top-8 shadow-2xl border-t-4 border-blue-600">
-                    <h2 class="text-xs font-black mb-6 text-slate-400 uppercase tracking-[0.2em]">Configuración Sugerida</h2>
+            <div class="lg:col-span-4">
+                <div class="bg-slate-900 rounded-3xl p-8 text-white sticky top-6 shadow-2xl border-b-8 border-green-500 text-center">
+                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-8">Capacidad Requerida</h3>
                     
-                    <div class="mb-10 text-center py-8 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
-                        <div id="panel-count" class="text-8xl font-black text-slate-900 leading-none">0</div>
-                        <div class="text-blue-600 font-black mt-3 uppercase text-sm tracking-widest">Paneles de 550W</div>
+                    <div class="py-10 bg-slate-800/50 rounded-2xl mb-8 border border-slate-700">
+                        <p id="res-kwh" class="text-6xl font-black text-white">0.0</p>
+                        <p class="text-sm text-slate-400 font-bold uppercase mt-2 tracking-widest">kWh Diarios</p>
                     </div>
 
-                    <div class="space-y-4">
-                        <input type="text" id="nombre" placeholder="Nombre completo" class="w-full bg-slate-100 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-600 outline-none text-slate-700 font-medium">
-                        
-                        <select id="zona" class="w-full bg-slate-100 border-none rounded-2xl p-4 focus:ring-2 focus:ring-blue-600 outline-none text-slate-700 font-medium">
-                            <option>La Paz, BCS</option>
-                            <option>Todos Santos</option>
-                            <option>Pescadero</option>
-                            <option>La Ribera / Lighthouse</option>
-                        </select>
-
-                        <button onclick="enviarWhatsApp()" class="w-full bg-green-600 hover:bg-green-500 text-white font-black py-5 rounded-2xl transition-all shadow-lg shadow-green-200 flex items-center justify-center gap-3">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                            OBTENER COTIZACIÓN
-                        </button>
-                        
-                        <div class="text-center space-y-2 pt-4">
-                            <p class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">
-                                Rosaura Zapata 2730, La Paz | +16% IVA
-                            </p>
-                            <p class="text-[9px] text-slate-300">
-                                Cálculo basado en 5.5 horas de sol pico (BCS).
-                            </p>
-                        </div>
+                    <button onclick="enviarWhatsapp()" class="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-black py-5 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-500/20">
+                        <i class="fab fa-whatsapp text-2xl"></i> SOLICITAR DISEÑO SOLAR
+                    </button>
+                    
+                    <div class="mt-8 space-y-2">
+                        <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Baja Pro Services</p>
+                        <p class="text-[9px] text-slate-600">Rosaura Zapata 2730, La Paz, BCS.</p>
                     </div>
                 </div>
             </div>
@@ -86,70 +94,82 @@
     </main>
 
     <script>
-        const equipos = [
-            { n: "Mini-Split 1.0 Ton", w: 1100, i: "fa-snowflake" },
-            { n: "Mini-Split 1.5 Tons", w: 1650, i: "fa-snowflake" },
-            { n: "Mini-Split 2.0 Tons", w: 2200, i: "fa-snowflake" },
-            { n: "Refrigerador Side-by-Side", w: 350, i: "fa-columns" },
-            { n: "Horno Eléctrico Pro", w: 2800, i: "fa-fire-burner" },
-            { n: "Parrilla de Inducción", w: 4500, i: "fa-bolt" },
-            { n: "Cava de Vinos", w: 150, i: "fa-wine-bottle" },
-            { n: "Lavavajillas", w: 1400, i: "fa-faucet-drip" },
-            { n: "Microondas", w: 1300, i: "fa-square" },
-            { n: "Cafetera Espresso", w: 1450, i: "fa-mug-hot" },
-            { n: "Air Fryer", w: 1600, i: "fa-wind" },
-            { n: "Lavadora Frontal", w: 900, i: "fa-soap" },
-            { n: "Secadora Eléctrica", w: 5200, i: "fa-wind" },
-            { n: "Bomba de Alberca", w: 1500, i: "fa-water" },
-            { n: "Cargador Auto Eléctrico", w: 7400, i: "fa-car-side" },
-            { n: "Hidroneumático", w: 1100, i: "fa-faucet" },
-            { n: "Calentador Eléctrico", w: 4500, i: "fa-hot-tub-person" },
-            { n: "Pantalla OLED 75+", w: 350, i: "fa-tv" },
-            { n: "Home Theater", w: 500, i: "fa-volume-high" },
-            { n: "Computadora Gamer", w: 800, i: "fa-gamepad" },
-            { n: "Secador de Cabello", w: 1900, i: "fa-wind" },
-            { n: "Cámaras de Seguridad", w: 100, i: "fa-video" },
-            { n: "Portón Eléctrico", w: 400, i: "fa-door-open" },
-            { n: "Licuadora Pro", w: 1200, i: "fa-blender" },
-            { n: "Aspiradora Robot", w: 60, i: "fa-robot" }
+        const EQUIPOS = [
+            { n: "Mini Split 1 Ton", w: 1100, img: "mini_split_1_ton.png" },
+            { n: "Mini Split 1.5 Ton", w: 1650, img: "mini splt 1.5 ton.png" },
+            { n: "Mini Split 2 Ton", w: 2200, img: "mini split 2 ton.png" },
+            { n: "Refrigerador Side by Side", w: 350, img: "refrigerador side by side.png" },
+            { n: "Parrilla de Inducción", w: 4500, img: "Parrilla_de_induccion.png" },
+            { n: "Secadora Eléctrica", w: 5200, img: "secadora electrica.png" },
+            { n: "Lavadora", w: 900, img: "lavadora-convertido.png" },
+            { n: "Lavavajillas", w: 1400, img: "lavavajillas.png" },
+            { n: "Horno Eléctrico Pro", w: 3500, img: "horno_electrico_pro.png" },
+            { n: "Microondas", w: 1300, img: "microondas.png" },
+            { n: "Air Fryer", w: 1600, img: "air_fryer.png" },
+            { n: "Licuadora Pro", w: 1200, img: "licuadora pro.png" },
+            { n: "Bomba para Alberca", w: 1500, img: "bomba para alberca.png" },
+            { n: "Hidroneumático", w: 1100, img: "hidroumatico.png" },
+            { n: "Portón Eléctrico", w: 400, img: "porton electrico.png" },
+            { n: "Cargador Auto Eléctrico", w: 7400, img: "cargador de auto electrico.png" },
+            { n: "Calentador Eléctrico", w: 4500, img: "calentador electrico.png" },
+            { n: "Pantalla OLED", w: 350, img: "pantalla oled.png" },
+            { n: "Home Theatre", w: 500, img: "home theatre.png" },
+            { n: "Computadora Gamer", w: 800, img: "computadora gamer.png" },
+            { n: "Cámaras Seguridad", w: 100, img: "camaras de seguridad.png" },
+            { n: "Aspiradora", w: 1200, img: "aspiradora.png" },
+            { n: "Secadora de Cabello", w: 1800, img: "secadora de cabello.png" }
         ];
 
-        const grid = document.getElementById('grid-equipos');
-        let wattsTotales = 0;
+        const tbody = document.getElementById('lista-tecnica');
+        const H_SOL = 5.9;
+        const COSTO_W = 14.0;
+        const COSTO_B = 28900;
 
-        equipos.forEach((eq, idx) => {
-            const card = document.createElement('label');
-            card.className = "relative cursor-pointer";
-            card.innerHTML = `
-                <input type="checkbox" class="hidden peer" onchange="calcular()">
-                <div class="flex items-center gap-4 p-5 rounded-2xl border-2 border-slate-100 bg-white shadow-sm peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all hover:shadow-md">
-                    <div class="w-10 h-10 flex items-center justify-center text-slate-400 peer-checked:text-blue-600">
-                        <i class="fas ${eq.i} text-xl"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-sm font-bold text-slate-700">${eq.n}</h4>
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">${eq.w} Watts</p>
-                    </div>
-                </div>
+        EQUIPOS.forEach((eq) => {
+            const tr = document.createElement('tr');
+            tr.className = "border-b border-slate-50 group hover:bg-slate-50 transition-all";
+            tr.innerHTML = `
+                <td class="py-3 flex items-center gap-3">
+                    <img src="${eq.img}" alt="${eq.n}" class="img-thumb">
+                    <span class="font-bold text-slate-700 text-xs md:text-sm">${eq.n}</span>
+                    <input type="hidden" value="${eq.w}">
+                </td>
+                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
+                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
+                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
             `;
-            grid.appendChild(card);
+            tbody.appendChild(tr);
         });
 
-        function calcular() {
-            wattsTotales = 0;
-            const checks = document.querySelectorAll('input[type="checkbox"]');
-            checks.forEach((ck, i) => { if(ck.checked) wattsTotales += equipos[i].w; });
-            const paneles = Math.ceil(wattsTotales / 1150);
-            document.getElementById('panel-count').innerText = wattsTotales > 0 ? paneles : 0;
+        function lim(el) { if(el.value.length > 5) el.value = el.value.slice(0, 5); }
+
+        function calc() {
+            let totalKwh = 0;
+            const filas = tbody.querySelectorAll('tr');
+            filas.forEach(f => {
+                const w = parseFloat(f.querySelector('input[type=hidden]').value);
+                const ins = f.querySelectorAll('input[type=number]');
+                const c = parseFloat(ins[0].value) || 0;
+                const h = parseFloat(ins[1].value) || 0;
+                const m = parseFloat(ins[2].value) || 0;
+                if(c > 0) totalKwh += (c * w * (h + (m/60))) / 1000;
+            });
+            document.getElementById('res-kwh').innerText = totalKwh.toFixed(1);
         }
 
-        function enviarWhatsApp() {
-            const nombre = document.getElementById('nombre').value;
-            const zona = document.getElementById('zona').value;
-            const paneles = document.getElementById('panel-count').innerText;
-            if(!nombre || paneles == 0) return alert("Por favor completa tu nombre y selecciona equipos.");
+        function enviarWhatsapp() {
+            const nom = document.getElementById('c-nombre').value;
+            const tel = document.getElementById('c-tel').value;
+            const dir = document.getElementById('c-dir').value;
+            const kwh = document.getElementById('res-kwh').innerText;
+
+            if(!nom || !tel || kwh == "0.0") return alert("Por favor completa tus datos.");
+
+            const paneles = Math.ceil(parseFloat(kwh) / (0.550 * H_SOL * 0.8));
+            const subtotal = (paneles * 550 * COSTO_W) + (Math.ceil(parseFloat(kwh)*0.5/5) * COSTO_B);
+
+            const msg = `*NUEVO LEAD ENERGÉTICO*%0A👤 *Cliente:* ${nom}%0A📞 *Tel:* ${tel}%0A📍 *Dirección:* ${dir}%0A⚡ *Consumo:* ${kwh} kWh Diarios%0A--------------------------%0A☀️ *Sugerencia:* ${paneles} Paneles 550W%0A💰 *Presupuesto:* $${subtotal.toLocaleString()} + IVA`;
             
-            const msg = `*COTIZACIÓN SOLAR*%0A👤 *Cliente:* ${nombre}%0A📍 *Zona:* ${zona}%0A☀️ *Módulos 550W:* ${paneles}%0A⚡ *Potencia:* ${wattsTotales}W%0A*BAJA PRO SERVICES*`;
             window.open(`https://wa.me/5216122198325?text=${msg}`, '_blank');
             window.location.href = "gracias.html";
         }

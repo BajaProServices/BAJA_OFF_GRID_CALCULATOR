@@ -3,66 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Energía | BAJA PRO SERVICES</title>
+    <title>Calculadora de Energía Premium | BAJA PRO SERVICES</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        .hero-section {
-            background-image: ('hero.jpg');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0) 0%, rgba(2, 6, 23, 0.95) 100%);
+        }
+
+        .hero-container {
+            height: 500px;
+            background-image: url('hero.png.jpg');
             background-size: cover;
             background-position: center;
-            height: 400px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            position: relative;
         }
-        .hero-label {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(4px);
-            @apply px-8 py-4 rounded-t-3xl text-center border-t border-x border-white/10;
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        .input-premium {
+            @apply bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-400 transition-all;
+        }
+
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+
+        .img-thumb { 
+            width: 60px; height: 60px; object-fit: contain; 
+            @apply rounded-xl bg-slate-800 p-2 border border-slate-700 shadow-lg group-hover:scale-110 transition-transform; 
+        }
+
+        /* Custom Scrollbar */
+        .custom-scroll::-webkit-scrollbar { width: 5px; }
+        .custom-scroll::-webkit-scrollbar-thumb { background: #475569; border-radius: 10px; }
+
         input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; }
-        .input-cal { @apply bg-slate-100 border-none rounded-lg p-2 text-center text-sm font-bold focus:ring-2 focus:ring-blue-500 outline-none; }
-        .img-thumb { width: 50px; height: 50px; object-fit: contain; @apply rounded-lg bg-white p-1 shadow-sm border border-slate-100; }
-        .custom-scroll::-webkit-scrollbar { width: 6px; }
-        .custom-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-900">
+<body class="bg-[#020617] text-slate-200 antialiased">
 
-    <header class="hero-section shadow-inner">
-        <div class="hero-label">
-            <h1 class="text-2xl font-black text-white tracking-tighter uppercase">BAJA PRO SERVICES</h1>
-            <p class="text-blue-400 text-xs font-bold tracking-widest uppercase">Calculadora Técnica BCS</p>
+    <header class="hero-container shadow-2xl">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative h-full container mx-auto px-4 flex flex-col justify-end pb-12 items-center md:items-start">
+            <div class="inline-block px-4 py-1 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold tracking-[0.2em] uppercase mb-4">
+                Energía Inteligente para BCS
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white tracking-tighter mb-2">
+                BAJA <span class="text-amber-400">PRO</span> SERVICES
+            </h1>
+            <p class="text-slate-400 text-lg max-w-xl">Diseña tu independencia energética con precisión técnica y tecnología LiFePo4.</p>
         </div>
     </header>
 
-    <main class="container mx-auto px-4 mt-8 pb-20">
+    <main class="container mx-auto px-4 -mt-8 relative z-10 pb-20">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
             <div class="lg:col-span-8 space-y-6">
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-id-card text-blue-600"></i> Datos del Proyecto</h2>
+                
+                <div class="glass-card rounded-[2rem] p-8">
+                    <h2 class="text-xl font-bold mb-6 flex items-center gap-3 text-white">
+                        <i class="fas fa-user-astronaut text-amber-400"></i> Configuración del Proyecto
+                    </h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <input type="text" id="c-nombre" placeholder="Nombre completo" class="input-cal bg-slate-50 py-4 px-4 text-left">
-                        <input type="tel" id="c-tel" placeholder="Número de teléfono" class="input-cal bg-slate-50 py-4 px-4 text-left">
-                        <input type="text" id="c-dir" placeholder="Dirección completa" class="input-cal bg-slate-50 py-4 px-4 text-left">
+                        <input type="text" id="c-nombre" placeholder="Nombre completo" class="input-premium">
+                        <input type="tel" id="c-tel" placeholder="WhatsApp / Teléfono" class="input-premium">
+                        <input type="text" id="c-dir" placeholder="Ubicación (Ej. El Pescadero)" class="input-premium">
                     </div>
                 </div>
 
-                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 overflow-hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-lg font-bold">Uso de Electrodomésticos</h2>
-                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter italic">BCS | 5.9 PSH</span>
+                <div class="glass-card rounded-[2rem] p-8 overflow-hidden">
+                    <div class="flex justify-between items-end mb-8">
+                        <div>
+                            <h2 class="text-xl font-bold text-white">Inventario de Consumo</h2>
+                            <p class="text-slate-500 text-sm">Selecciona tus equipos para calcular la carga real.</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[10px] font-black text-amber-400/60 uppercase tracking-widest block">Índice Solar</span>
+                            <span class="text-lg font-bold text-white">5.9 PSH</span>
+                        </div>
                     </div>
-                    <div class="overflow-x-auto max-h-[600px] overflow-y-auto custom-scroll pr-2">
-                        <table class="w-full text-left">
-                            <thead class="sticky top-0 bg-white z-10">
-                                <tr class="text-[10px] uppercase text-slate-400 border-b italic">
-                                    <th class="pb-4">Aparato</th>
-                                    <th class="pb-4 text-center">Cant.</th>
-                                    <th class="pb-4 text-center">Horas</th>
-                                    <th class="pb-4 text-center">Minutos</th>
+
+                    <div class="overflow-x-auto max-h-[600px] overflow-y-auto custom-scroll pr-4">
+                        <table class="w-full text-left border-separate border-spacing-y-3">
+                            <thead>
+                                <tr class="text-[10px] uppercase text-slate-500 tracking-[0.2em]">
+                                    <th class="pb-2 pl-4">Equipo</th>
+                                    <th class="pb-2 text-center">Cant.</th>
+                                    <th class="pb-2 text-center">Horas/Día</th>
+                                    <th class="pb-2 text-center">Mins.</th>
                                 </tr>
                             </thead>
                             <tbody id="lista-tecnica"></tbody>
@@ -72,34 +108,43 @@
             </div>
 
             <div class="lg:col-span-4">
-                <div class="bg-slate-900 rounded-3xl p-8 text-white sticky top-6 shadow-2xl border-b-8 border-green-500 text-center">
-                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-8">Requerimiento Energético</h3>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="py-6 bg-slate-800/50 rounded-2xl border border-slate-700">
-                            <p id="res-kwh" class="text-5xl font-black text-white">0.0</p>
-                            <p class="text-[10px] text-slate-400 font-bold uppercase mt-1 tracking-widest">kWh Diarios</p>
+                <div class="bg-white rounded-[2.5rem] p-10 text-slate-900 sticky top-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-t-8 border-amber-400">
+                    <div class="text-center mb-8">
+                        <h3 class="text-slate-400 font-bold uppercase tracking-widest text-[11px] mb-2">Diagnóstico Energético</h3>
+                        <div class="inline-block px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-500 italic">Baja California Sur</div>
+                    </div>
+
+                    <div class="space-y-6 mb-10">
+                        <div class="text-center">
+                            <span class="text-6xl font-black tracking-tighter text-slate-900" id="res-kwh">0.0</span>
+                            <span class="text-lg font-bold text-slate-400 ml-1">kWh</span>
+                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Consumo Diario Estimado</p>
                         </div>
 
-                        <div class="py-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
-                            <p id="res-bat" class="text-3xl font-black text-blue-400">0</p>
-                            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest italic">Módulos LiFePo4 5kW Sugeridos</p>
+                        <div class="h-px bg-slate-100 w-full"></div>
+
+                        <div class="flex items-center justify-between px-4">
+                            <div class="text-left">
+                                <span class="block text-2xl font-black text-slate-900" id="res-bat">0</span>
+                                <span class="text-[9px] font-bold text-slate-500 uppercase tracking-tighter">Baterías LiFePo4</span>
+                            </div>
+                            <i class="fas fa-battery-three-quarters text-3xl text-green-500"></i>
                         </div>
                     </div>
 
-                    <div class="space-y-3">
-                        <button onclick="enviarWhatsapp()" class="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-black py-5 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg">
-                            <i class="fab fa-whatsapp text-2xl"></i> ENVIAR A REVISIÓN TÉCNICA
+                    <div class="space-y-4">
+                        <button onclick="enviarWhatsapp()" class="w-full bg-[#10b981] hover:bg-[#059669] text-white font-extrabold py-5 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-xl btn-glow group">
+                            <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i> SOLICITAR DISEÑO PRO
                         </button>
 
-                        <a href="solar_accessories.html" class="w-full border-2 border-blue-500/50 hover:bg-blue-500/10 text-blue-400 font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-3">
-                            <i class="fas fa-tools"></i> VER ACCESORIOS SOLARES
+                        <a href="solar_accessories.html" class="w-full border-2 border-slate-200 hover:border-amber-400 hover:text-amber-600 text-slate-600 font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-3">
+                            <i class="fas fa-plus-circle"></i> Catálogo Accesorios
                         </a>
                     </div>
-                    
-                    <div class="mt-8 space-y-2">
-                        <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Baja Pro Services</p>
-                        <p class="text-[9px] text-slate-600">Rosaura Zapata 2730, La Paz, BCS.</p>
+
+                    <div class="mt-12 text-center opacity-40">
+                        <p class="text-[10px] font-bold tracking-widest uppercase mb-1">Baja Pro Services</p>
+                        <p class="text-[9px]">Rosaura Zapata 2730, La Paz, BCS.</p>
                     </div>
                 </div>
             </div>
@@ -108,53 +153,43 @@
 
     <script>
         const EQUIPOS = [
-            { n: "Mini Split 1 Ton", w: 1100, img: "mini_split_1_ton.png" },
-            { n: "Mini Split 1.5 Ton", w: 1650, img: "mini splt 1.5 ton.png" },
-            { n: "Mini Split 2 Ton", w: 2200, img: "mini split 2 ton.png" },
-            { n: "Refrigerador Side by Side", w: 350, img: "refrigerador side by side.png" },
-            { n: "Parrilla de Inducción", w: 4500, img: "Parrilla_de_induccion.png" },
-            { n: "Secadora Eléctrica", w: 5200, img: "secadora electrica.png" },
-            { n: "Lavadora", w: 900, img: "lavadora.png" },
-            { n: "Lavavajillas", w: 1400, img: "lavavajillas.png" },
-            { n: "Horno Eléctrico Pro", w: 3500, img: "horno_electrico_pro.png" },
-            { n: "Microondas", w: 1300, img: "microondas.png" },
-            { n: "Air Fryer", w: 1600, img: "air_fryer.png" },
-            { n: "Licuadora Pro", w: 1200, img: "licuadora pro.png" },
-            { n: "Bomba para Alberca", w: 1500, img: "bomba para alberca.png" },
-            { n: "Hidroneumático", w: 1100, img: "hidroumatico.png" },
-            { n: "Portón Eléctrico", w: 400, img: "porton electrico.png" },
-            { n: "Cargador Auto Eléctrico", w: 7400, img: "cargador de auto electrico.png" },
-            { n: "Calentador Eléctrico", w: 4500, img: "calentador electrico.png" },
-            { n: "Pantalla OLED", w: 350, img: "pantalla oled.png" },
-            { n: "Home Theatre", w: 500, img: "home theatre.png" },
-            { n: "Computadora Gamer", w: 800, img: "computadora gamer.png" },
-            { n: "Cámaras Seguridad", w: 100, img: "camaras de seguridad.png" },
-            { n: "Aspiradora", w: 1200, img: "aspiradora.png" },
-            { n: "Secadora de Cabello", w: 1800, img: "secadora de cabello.png" }
+            { n: "Mini Split 1 Ton", w: 1100, img: "mini_split_1_ton-convertido-de-webp.png" },
+            { n: "Mini Split 1.5 Ton", w: 1650, img: "mini splt 1.5 ton-convertido-de-jpg.png" },
+            { n: "Mini Split 2 Ton", w: 2200, img: "mini split 2 ton-convertido-de-jpg.png" },
+            { n: "Refrigerador Side by Side", w: 350, img: "refrigerador side by side-convertido-de-jpg.png" },
+            { n: "Parrilla de Inducción", w: 4500, img: "Parrilla_de_induccion-convertido-de-webp.png" },
+            { n: "Secadora Eléctrica", w: 5200, img: "secadora electrica-convertido-de-jpg.png" },
+            { n: "Lavadora", w: 900, img: "lavadora-convertido-de-jpg.png" },
+            { n: "Bomba para Alberca", w: 1500, img: "bomba para añberca-convertido-de-jpg.png" },
+            { n: "Hidroneumático", w: 1100, img: "hidroumatico-convertido-de-jpg.png" },
+            { n: "Cargador Auto Eléctrico", w: 7400, img: "cargador de auto electrico-convertido-de-jpg.png" },
+            { n: "Pantalla OLED", w: 350, img: "pantalla oled-convertido-de-jpg.png" },
+            { n: "Computadora Gamer", w: 800, img: "computadora gamer-convertido-de-jpg.png" },
+            { n: "Cámaras Seguridad", w: 100, img: "camaras de seguridad-convertido-de-jpg.png" }
         ];
 
         const tbody = document.getElementById('lista-tecnica');
         const H_SOL = 5.9;
         const COSTO_W = 14.0;
-        const COSTO_B = 28900;
+        const COSTO_BAT_5KW = 28900;
 
         EQUIPOS.forEach((eq) => {
             const tr = document.createElement('tr');
-            tr.className = "border-b border-slate-50 group hover:bg-slate-50 transition-all";
+            tr.className = "group transition-all";
             tr.innerHTML = `
-                <td class="py-3 flex items-center gap-3">
+                <td class="py-2 pl-4 flex items-center gap-4">
                     <img src="${eq.img}" alt="${eq.n}" class="img-thumb">
-                    <span class="font-bold text-slate-700 text-xs md:text-sm">${eq.n}</span>
+                    <span class="font-bold text-white text-sm">${eq.n}</span>
                     <input type="hidden" value="${eq.w}">
                 </td>
-                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
-                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
-                <td class="px-1 text-center"><input type="number" oninput="lim(this); calc()" class="input-cal w-12" placeholder="0"></td>
+                <td class="text-center"><input type="number" oninput="lim(this); calc()" class="input-premium w-16 text-center py-2" placeholder="0"></td>
+                <td class="text-center"><input type="number" oninput="lim(this); calc()" class="input-premium w-16 text-center py-2" placeholder="0"></td>
+                <td class="text-center"><input type="number" oninput="lim(this); calc()" class="input-premium w-16 text-center py-2" placeholder="0"></td>
             `;
             tbody.appendChild(tr);
         });
 
-        function lim(el) { if(el.value.length > 5) el.value = el.value.slice(0, 5); }
+        function lim(el) { if(el.value.length > 3) el.value = el.value.slice(0, 3); }
 
         function calc() {
             let totalKwh = 0;
@@ -180,12 +215,12 @@
             const kwh = parseFloat(document.getElementById('res-kwh').innerText);
             const bat = document.getElementById('res-bat').innerText;
 
-            if(!nom || !tel || kwh <= 0) return alert("Por favor completa tus datos.");
+            if(!nom || !tel || kwh <= 0) return alert("Por favor completa tu nombre y el inventario.");
 
             const paneles = Math.ceil(kwh / (0.550 * H_SOL * 0.8));
-            const subtotal = (paneles * 550 * COSTO_W) + (parseInt(bat) * COSTO_B);
+            const subtotal = (paneles * 550 * COSTO_W) + (parseInt(bat) * COSTO_BAT_5KW);
 
-            const msg = `*LEAD BAJA PRO SERVICES*%0A👤 *Cliente:* ${nom}%0A📞 *Tel:* ${tel}%0A📍 *Dir:* ${dir}%0A⚡ *Uso:* ${kwh.toFixed(1)} kWh/día%0A🔋 *Baterías:* ${bat} LiFePo4 5kW%0A☀️ *Sistema:* ${paneles} Paneles 550W%0A💰 *Est:* $${subtotal.toLocaleString()} + IVA`;
+            const msg = `*SOLICITUD BAJA PRO SERVICES*%0A👤 *Cliente:* ${nom}%0A📞 *WhatsApp:* ${tel}%0A📍 *Ubicación:* ${dir}%0A⚡ *Uso Calculado:* ${kwh.toFixed(1)} kWh/día%0A🔋 *Baterías:* ${bat} Mod. 5kW LiFePo4%0A☀️ *Sug:* ${paneles} Paneles 550W%0A💰 *Inversión Est:* $${subtotal.toLocaleString()} + IVA`;
             
             window.open(`https://wa.me/5216122198325?text=${msg}`, '_blank');
         }

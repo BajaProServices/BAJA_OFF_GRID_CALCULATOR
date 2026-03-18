@@ -8,10 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         .hero-section {
-            background-image: url('hero.png');
+            background-image: url('hero.jpg');
             background-size: cover;
             background-position: center;
-            height: 400px; /* Ajuste para que la imagen luzca limpia */
+            height: 400px;
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -42,7 +42,7 @@
             
             <div class="lg:col-span-8 space-y-6">
                 <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-id-card text-blue-600"></i> Información de Contacto</h2>
+                    <h2 class="text-lg font-bold mb-6 flex items-center gap-2"><i class="fas fa-id-card text-blue-600"></i> Datos del Proyecto</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <input type="text" id="c-nombre" placeholder="Nombre completo" class="input-cal bg-slate-50 py-4 px-4 text-left">
                         <input type="tel" id="c-tel" placeholder="Número de teléfono" class="input-cal bg-slate-50 py-4 px-4 text-left">
@@ -53,7 +53,7 @@
                 <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 overflow-hidden">
                     <div class="flex justify-between items-center mb-6">
                         <h2 class="text-lg font-bold">Uso de Electrodomésticos</h2>
-                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter italic">Baja California Sur | 5.9 PSH</span>
+                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-tighter italic">BCS | 5.9 PSH</span>
                     </div>
                     <div class="overflow-x-auto max-h-[600px] overflow-y-auto custom-scroll pr-2">
                         <table class="w-full text-left">
@@ -73,16 +73,29 @@
 
             <div class="lg:col-span-4">
                 <div class="bg-slate-900 rounded-3xl p-8 text-white sticky top-6 shadow-2xl border-b-8 border-green-500 text-center">
-                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-8">Capacidad Requerida</h3>
+                    <h3 class="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-8">Requerimiento Energético</h3>
                     
-                    <div class="py-10 bg-slate-800/50 rounded-2xl mb-8 border border-slate-700">
-                        <p id="res-kwh" class="text-6xl font-black text-white">0.0</p>
-                        <p class="text-sm text-slate-400 font-bold uppercase mt-2 tracking-widest">kWh Diarios</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="py-6 bg-slate-800/50 rounded-2xl border border-slate-700">
+                            <p id="res-kwh" class="text-5xl font-black text-white">0.0</p>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase mt-1 tracking-widest">kWh Diarios</p>
+                        </div>
+
+                        <div class="py-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
+                            <p id="res-bat" class="text-3xl font-black text-blue-400">0</p>
+                            <p class="text-[9px] text-slate-400 font-bold uppercase tracking-widest italic">Módulos LiFePo4 5kW Sugeridos</p>
+                        </div>
                     </div>
 
-                    <button onclick="enviarWhatsapp()" class="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-black py-5 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-500/20">
-                        <i class="fab fa-whatsapp text-2xl"></i> SOLICITAR DISEÑO SOLAR
-                    </button>
+                    <div class="space-y-3">
+                        <button onclick="enviarWhatsapp()" class="w-full bg-green-500 hover:bg-green-400 text-slate-900 font-black py-5 rounded-2xl transition-all flex items-center justify-center gap-3 shadow-lg">
+                            <i class="fab fa-whatsapp text-2xl"></i> ENVIAR A REVISIÓN TÉCNICA
+                        </button>
+
+                        <a href="solar_accessories.html" class="w-full border-2 border-blue-500/50 hover:bg-blue-500/10 text-blue-400 font-bold py-4 rounded-2xl transition-all flex items-center justify-center gap-3">
+                            <i class="fas fa-tools"></i> VER ACCESORIOS SOLARES
+                        </a>
+                    </div>
                     
                     <div class="mt-8 space-y-2">
                         <p class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Baja Pro Services</p>
@@ -95,29 +108,29 @@
 
     <script>
         const EQUIPOS = [
-            { n: "Mini Split 1 Ton", w: 1100, img: "mini_split_1_ton.png" },
-            { n: "Mini Split 1.5 Ton", w: 1650, img: "mini splt 1.5 ton.png" },
-            { n: "Mini Split 2 Ton", w: 2200, img: "mini split 2 ton.png" },
-            { n: "Refrigerador Side by Side", w: 350, img: "refrigerador side by side.png" },
-            { n: "Parrilla de Inducción", w: 4500, img: "Parrilla_de_induccion.png" },
-            { n: "Secadora Eléctrica", w: 5200, img: "secadora electrica.png" },
-            { n: "Lavadora", w: 900, img: "lavadora frontal.png" },
-            { n: "Lavavajillas", w: 1400, img: "lavavajillas.png" },
-            { n: "Horno Eléctrico Pro", w: 3500, img: "horno_electrico_pro.png" },
-            { n: "Microondas", w: 1300, img: "microondas.png" },
-            { n: "Air Fryer", w: 1600, img: "air_fryer.png" },
-            { n: "Licuadora Pro", w: 1200, img: "licuadora pro.png" },
-            { n: "Bomba para Alberca", w: 1500, img: "bomba para alberca.png" },
-            { n: "Hidroneumático", w: 1100, img: "hidroumatico.png" },
-            { n: "Portón Eléctrico", w: 400, img: "porton electrico.png" },
-            { n: "Cargador Auto Eléctrico", w: 7400, img: "cargador de auto electrico.png" },
-            { n: "Calentador Eléctrico", w: 4500, img: "calentador electrico.png" },
-            { n: "Pantalla OLED", w: 350, img: "pantalla oled.png" },
-            { n: "Home Theatre", w: 500, img: "home theatre.png" },
-            { n: "Computadora Gamer", w: 800, img: "computadora gamer.png" },
-            { n: "Cámaras Seguridad", w: 100, img: "camaras de seguridad.png" },
-            { n: "Aspiradora", w: 1200, img: "aspiradora.png" },
-            { n: "Secadora de Cabello", w: 1800, img: "secadora de cabello.png" }
+            { n: "Mini Split 1 Ton", w: 1100, img: "mini_split_1_ton-convertido-de-webp.png" },
+            { n: "Mini Split 1.5 Ton", w: 1650, img: "mini splt 1.5 ton-convertido-de-jpg.png" },
+            { n: "Mini Split 2 Ton", w: 2200, img: "mini split 2 ton-convertido-de-jpg.png" },
+            { n: "Refrigerador Side by Side", w: 350, img: "refrigerador side by side-convertido-de-jpg.png" },
+            { n: "Parrilla de Inducción", w: 4500, img: "Parrilla_de_induccion-convertido-de-webp.png" },
+            { n: "Secadora Eléctrica", w: 5200, img: "secadora electrica-convertido-de-jpg.png" },
+            { n: "Lavadora", w: 900, img: "lavadora-convertido-de-jpg.png" },
+            { n: "Lavavajillas", w: 1400, img: "lavavajillas-convertido-de-jpg.png" },
+            { n: "Horno Eléctrico Pro", w: 3500, img: "horno_electrico_pro-convertido-de-webp.png" },
+            { n: "Microondas", w: 1300, img: "microondas-convertido-de-jpg.png" },
+            { n: "Air Fryer", w: 1600, img: "air_fryer-convertido-de-jpg.png" },
+            { n: "Licuadora Pro", w: 1200, img: "licuadora pro-convertido-de-jpg.png" },
+            { n: "Bomba para Alberca", w: 1500, img: "bomba para añberca-convertido-de-jpg.png" },
+            { n: "Hidroneumático", w: 1100, img: "hidroumatico-convertido-de-jpg.png" },
+            { n: "Portón Eléctrico", w: 400, img: "porton electrico-convertido-de-jpg.png" },
+            { n: "Cargador Auto Eléctrico", w: 7400, img: "cargador de auto electrico-convertido-de-jpg.png" },
+            { n: "Calentador Eléctrico", w: 4500, img: "calentador electrico-convertido-de-jpg.png" },
+            { n: "Pantalla OLED", w: 350, img: "pantalla oled-convertido-de-jpg.png" },
+            { n: "Home Theatre", w: 500, img: "home theatre-convertido-de-jpg.png" },
+            { n: "Computadora Gamer", w: 800, img: "computadora gamer-convertido-de-jpg.png" },
+            { n: "Cámaras Seguridad", w: 100, img: "camaras de seguridad-convertido-de-jpg.png" },
+            { n: "Aspiradora", w: 1200, img: "aspiradora-convertido-de-jpg.png" },
+            { n: "Secadora de Cabello", w: 1800, img: "secadora de cabello-convertido-de-jpg.png" }
         ];
 
         const tbody = document.getElementById('lista-tecnica');
@@ -154,24 +167,27 @@
                 const m = parseFloat(ins[2].value) || 0;
                 if(c > 0) totalKwh += (c * w * (h + (m/60))) / 1000;
             });
+            
+            const numBat = Math.ceil((totalKwh * 0.5) / 5);
             document.getElementById('res-kwh').innerText = totalKwh.toFixed(1);
+            document.getElementById('res-bat').innerText = totalKwh > 0 ? numBat : 0;
         }
 
         function enviarWhatsapp() {
             const nom = document.getElementById('c-nombre').value;
             const tel = document.getElementById('c-tel').value;
             const dir = document.getElementById('c-dir').value;
-            const kwh = document.getElementById('res-kwh').innerText;
+            const kwh = parseFloat(document.getElementById('res-kwh').innerText);
+            const bat = document.getElementById('res-bat').innerText;
 
-            if(!nom || !tel || kwh == "0.0") return alert("Por favor completa tus datos.");
+            if(!nom || !tel || kwh <= 0) return alert("Por favor completa tus datos.");
 
-            const paneles = Math.ceil(parseFloat(kwh) / (0.550 * H_SOL * 0.8));
-            const subtotal = (paneles * 550 * COSTO_W) + (Math.ceil(parseFloat(kwh)*0.5/5) * COSTO_B);
+            const paneles = Math.ceil(kwh / (0.550 * H_SOL * 0.8));
+            const subtotal = (paneles * 550 * COSTO_W) + (parseInt(bat) * COSTO_B);
 
-            const msg = `*NUEVO LEAD ENERGÉTICO*%0A👤 *Cliente:* ${nom}%0A📞 *Tel:* ${tel}%0A📍 *Dirección:* ${dir}%0A⚡ *Consumo:* ${kwh} kWh Diarios%0A--------------------------%0A☀️ *Sugerencia:* ${paneles} Paneles 550W%0A💰 *Presupuesto:* $${subtotal.toLocaleString()} + IVA`;
+            const msg = `*LEAD BAJA PRO SERVICES*%0A👤 *Cliente:* ${nom}%0A📞 *Tel:* ${tel}%0A📍 *Dir:* ${dir}%0A⚡ *Uso:* ${kwh.toFixed(1)} kWh/día%0A🔋 *Baterías:* ${bat} LiFePo4 5kW%0A☀️ *Sistema:* ${paneles} Paneles 550W%0A💰 *Est:* $${subtotal.toLocaleString()} + IVA`;
             
             window.open(`https://wa.me/5216122198325?text=${msg}`, '_blank');
-            window.location.href = "gracias.html";
         }
     </script>
 </body>
